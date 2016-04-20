@@ -55,6 +55,9 @@ def write_section(ihandle,line,section_list):
     '''
     pos = 0 
     fname = line[line.find('{')+1:line.find('}')]  
+    fname = fname.lower()
+    fname = fname.replace(' ','_')
+    
     section_list.append(fname)
     ohandle = open('sections/'+fname+'.tex','w') 
     ohandle.write(line)
@@ -82,6 +85,7 @@ def write_beg_end(ihandle,line,ohandle):
     pos = 0
     ohandle.write(line)
     name = line[line.find('{')+1:line.find('}')]  
+    name = name.replace(' ','_')
     while True:
         line = ihandle.readline()
         if not line: break
