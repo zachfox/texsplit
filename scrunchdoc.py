@@ -2,27 +2,14 @@ import sys
 import os
 import shutil
 
-def load_files():
-    '''
-    Load all of the files in the sections folder
-    '''
-    tex_list = []
-    for root, dirs, files in os.walk('./sections/'): 
-        for item in files:
-            if ('.tex' in item): 
-                tex_list.append('./sections/'+item)
-            else:
-                pass    
-    return tex_list
 
-def write_to_main(tex_list):
+def write_to_main():
     '''
     Take the main file from sections and combine back into a 
     single file. 
     ''' 
-    shandle = open('main.tex','w')
+    shandle = open('combined_main.tex','w')
     try:
-        main_ind = tex_list.index() 
         mhandle = open('./sections/main.tex')
     except:
         'section files not found!'
@@ -43,12 +30,13 @@ def write_to_main(tex_list):
             shandle.write(line)
         
 def load_and_write(ihandle,ohandle):
+    '''
+    copy the lines from ihandle to ohandle.
+    '''
     for line in ihandle:
         ohandle.write(line)
     return ohandle
-    
             
 if __name__ == '__main__':
-    tex_list = load_files()
-    write_to_main(tex_list)
+    write_to_main()
     
