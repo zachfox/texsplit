@@ -3,6 +3,11 @@
 import splitdoc
 import scrunchdoc
 import sys
+#import argparse
+
+#parser = argparse.ArgumentParser(description='Process some integers.')
+#parser.add_argument('--scrunch', metavar='N', type=int, nargs='+',
+#                   help='an integer for the accumulator')
 
 if sys.argv[1] == '--scrunch':
     scrunchdoc.write_to_main()

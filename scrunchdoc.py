@@ -15,7 +15,7 @@ def write_to_main():
         'section files not found!'
 
     for line in mhandle:
-        if '\\input' in line:
+        if ('\\input' in line) and (line[0]!='%'):
             start_index = line.find('{')+1
             end_index = line.find('}')
             fname = './sections/'+line[start_index:end_index] +'.tex'
