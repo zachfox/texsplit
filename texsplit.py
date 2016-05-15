@@ -11,7 +11,8 @@ import sys
 
 if sys.argv[1] == '--scrunch':
     scrunchdoc.write_to_main()
-    
+    splitdoc.copy_to_dest('./sections/','./')
+
 elif sys.argv[1] == '--split':
     fname = sys.argv[2]
     ihandle = splitdoc.load_file(fname)

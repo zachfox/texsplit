@@ -13,17 +13,18 @@ def load_file(fname):
     except:
         pass 
     
-    copy_to_sections()    
+    copy_to_dest()    
     return ihandle 
 
-def copy_to_sections():
+def copy_to_dest(source = './',dest='./sections/'):
     '''
     Copy any non-annoying files to the new directory, 
+    Parameters are default for split. 
     '''
-    for root, dirs, files in os.walk('./'): 
+    for root, dirs, files in os.walk(source): 
         for item in files:
-            if ('.pdf' in item) or ('.eps' in item):
-                shutil.copy(item,'./sections/')
+            if ('.pdf' in item) or ('.eps' in item) or ('makefile' in item) or ('.bib' in item):
+                shutil.copy(source+item,dest)
             else:
                 pass    
 

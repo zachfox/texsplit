@@ -1,7 +1,7 @@
 import sys
 import os
 import shutil
-
+import splitdoc
 
 def write_to_main():
     '''
@@ -39,4 +39,5 @@ def load_and_write(ihandle,ohandle):
             
 if __name__ == '__main__':
     write_to_main()
+    splitdoc.copy_to_dest('../')
     
